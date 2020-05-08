@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //localStorage
+    //localStorage check if username is stored in our local storage
     if (localStorage.getItem("username") === null) {
 
         window.location.href = "login.html";
@@ -65,7 +65,9 @@ function getData(fetched) {
 function AddCards(data) {
 
     var tache_Data = '';
+    // /html used for replace content but .append add new data to content ^_^
     $("#Tache").html(tache_Data);
+    // for every web site we have a index , and values  : (web site name, web site link, and description)
     $.each(data, function (index, value) {
 
         tache_Data += '<div class="col-md-4">';
@@ -78,18 +80,19 @@ function AddCards(data) {
         
         tache_Data += '</div>';
         tache_Data += ' <div class="card-link">';
+        //this line show the data in the popUp update card card
         tache_Data += `<button type="button" data-toggle="modal" data-target="#UpdatePopUp" data-uid="1" onclick="show(${index},'${value.name}','${value.Description}','${value.Status}')" class="update btn btn-warning btn-sm" style="background-color:rgb(16, 199, 22);"><span class="fa fa-pencil"></span></button>`;
-        tache_Data += ' <button type="button" data-toggle="modal" data-target="#DeletePopUp" data-uid="1" onclick="show(' + index +')"  class="update btn btn-warning btn-sm" style="background-color:rgb(16, 199, 22);"><span class="fa fa-trash"></span></button>';
+        tache_Data += ' <button type="button" data-toggle="modal" data-target="#DeletePopUp" data-uid="1"  class="update btn btn-warning btn-sm" style="background-color:rgb(16, 199, 22);"><span class="fa fa-trash"></span></button>';
         tache_Data += '</div>';
         tache_Data += '</div>';
         tache_Data += '</div>';
     });
+    // insert data into our Row
     $("#Tache").append(tache_Data);
 
 
 }
 function openlink(link) {
-    console.log('ggf');
     window.open('' + link + '', '_blank');
 }
 function show(index,name,Description,Status) {

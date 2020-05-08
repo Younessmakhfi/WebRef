@@ -16,12 +16,15 @@ module.exports = (function() {
                                                     }
                                                 data =JSON.parse(jsonString) ;
                                                 //Get parameters
+                                                //at position req.body.index delete one item
                                                 data.splice(req.body.index,1);
                                                 //update file data Login.json
                                                 dataUpdated=JSON.stringify(data);
                                                 fs.writeFileSync('Data/Tache.json', dataUpdated);
                                                 //Response to clients
+                                                // .send will send http response
                                                 res.send({request:true,data});
+                                                // .end will end the response process
                                                 res.end();
 
                                             }) 

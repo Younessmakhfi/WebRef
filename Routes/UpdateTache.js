@@ -15,9 +15,11 @@ module.exports = (function() {
                                                     }
                                                 data = JSON.parse(jsonString);
                                                
-                                                //Get parameters
+                                                //client file send index and tache array to server
+                                                // and the server search for this index the the json db and udpate it
+                                            
                                                 data[req.body.index]=req.body.tache;
-                                                //update file data Login.json
+                                                //update file data Login.json , stringify: convert an object to a string
                                                 dataUpdated=JSON.stringify(data);
                                                 fs.writeFileSync('Data/Tache.json', dataUpdated);
                                                 //Response to clients

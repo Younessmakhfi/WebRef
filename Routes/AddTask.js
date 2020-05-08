@@ -6,8 +6,7 @@ module.exports = (function() {
     var api = express.Router();
     api.route("/AddTask").post(function(req, res) { 
 
-                                                //Recuperation d'un fichier Json 
-                                                
+                                                //Recuperation d'un fichier Json  
                                                 fs.readFile('Data/Tache.json', 'utf8', (err, jsonString) => {
                                                     if (err) {
                                                         console.log("File read failed:", err)
